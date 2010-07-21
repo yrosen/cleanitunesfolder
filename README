@@ -1,0 +1,20 @@
+Clean iTunes Folder - v1.0.0
+Yudi Rosen <yudi42@gmail.com>
+http://github.com/yrosen/cleanitunesfolder
+
+This script will scan your iTunes library and your iTunes music folder,
+and will list the files that appear in the folder but not in the library.
+
+It's a good way to keep track of the files you THOUGHT you deleted but
+are actually still hiding (and taking up space) on your hard drive.
+
+This works on WINDOWS only, you'll need PHP for Windows or use the EXE.
+The EXE was compiled with Bambalam - www.bambalam.se/bamcompile
+
+TODO:
+ - GUI in PHP-GTK?
+ - Figure out how to disconnect from iTunes scripting interface
+
+CHANGELOG:
+v1.0.0 - June 21 2010
+  * Original Release
