@@ -78,7 +78,7 @@ function ScanFolder($dir) {
 			if ($sub != '.' && $sub != '..') {
 				if(is_file($dir . '/' . $sub)) {
 					$librarytracks[] = $dir . '/' . $sub;
-                }
+                		}
 				elseif(is_dir($dir . '/' . $sub)) {
 					$listDir[$sub] = ScanFolder($dir . '/' . $sub);
 				}
