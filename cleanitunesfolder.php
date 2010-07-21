@@ -16,10 +16,11 @@
  * @license BSD
  */
 
-// Connect to iTunes via the COM interface:
 echo "Clean iTunes Folder v1.0.0\r\n";
+
+// Connect to iTunes via the COM interface:
 echo "Connecting to iTunes...";
-$itunes		   = new COM("iTunes.Application");
+$itunes	 = new COM("iTunes.Application");
 echo "Done!\r\n";
 
 $library       = $itunes->LibraryPlaylist->Tracks;
@@ -28,7 +29,7 @@ $numtracks     = $library->Count;
 // Always nice to make sure things are clean, even if it's pointless:
 $itunestracks  = array();
 $librarytracks = array();
-$matches	   = array();
+$matches	 = array();
 
 //Find our iTunes library dir:
 echo "Searching for iTunes music folder (this may take a minute)...";
