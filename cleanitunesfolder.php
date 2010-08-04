@@ -1,6 +1,6 @@
 <?php
 /**
- * Clean iTunes Folder - v1.0.0
+ * Clean iTunes Folder - v1.0.1
  *
  * This script will scan your iTunes library and your iTunes music folder,
  * and will list the files that appear in the folder but not in the library.
@@ -16,11 +16,10 @@
  * @license BSD
  */
 
-echo "Clean iTunes Folder v1.0.0\r\n";
-
 // Connect to iTunes via the COM interface:
+echo "Clean iTunes Folder v1.0.0\r\n";
 echo "Connecting to iTunes...";
-$itunes	 = new COM("iTunes.Application");
+$itunes		   = new COM("iTunes.Application");
 echo "Done!\r\n";
 
 $library       = $itunes->LibraryPlaylist->Tracks;
@@ -29,10 +28,10 @@ $numtracks     = $library->Count;
 // Always nice to make sure things are clean, even if it's pointless:
 $itunestracks  = array();
 $librarytracks = array();
-$matches	 = array();
+$matches	   = array();
 
 //Find our iTunes library dir:
-echo "Searching for iTunes music folder (this may take a minute)...";
+echo "Searching for iTunes music folder...";
 
 // I should be ashamed of this, but since I can't use simplexml...
 $itlxml = fopen($itunes->LibraryXMLPath, 'r');
@@ -79,7 +78,7 @@ function ScanFolder($dir) {
 			if ($sub != '.' && $sub != '..') {
 				if(is_file($dir . '/' . $sub)) {
 					$librarytracks[] = $dir . '/' . $sub;
-                		}
+                }
 				elseif(is_dir($dir . '/' . $sub)) {
 					$listDir[$sub] = ScanFolder($dir . '/' . $sub);
 				}
@@ -95,10 +94,11 @@ echo "Done! ({$numfiles} found)\r\n";
 
 // Compare the two:
 echo "Potentially problematic files found:\r\n";
+
+$i = 0;
+
 foreach($librarytracks as $libtrack) {
 	$libtrack = strtolower(str_replace('/', '\\', trim($libtrack)));
-
-	$i = 0;
 	
 	// Ignore .jpg files btw:
 	if( (!in_array($libtrack, $itunestracks)) && (substr($libtrack, -3) != 'jpg')) {
@@ -115,6 +115,4 @@ $handle = fopen ("php://stdin", "r");
 if(fgets($handle)) {
     die();
 }
-
-//TODO: How do we disconnect from iTunes?
 ?>

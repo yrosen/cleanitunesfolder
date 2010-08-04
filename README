@@ -16,5 +16,8 @@ TODO:
  - Figure out how to disconnect from iTunes scripting interface
 
 CHANGELOG:
+v1.0.1 - July 04 2010
+  * Fixed bug where files weren't counted right
+ 
 v1.0.0 - June 21 2010
   * Original Release
