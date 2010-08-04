@@ -17,7 +17,7 @@
  */
 
 // Connect to iTunes via the COM interface:
-echo "Clean iTunes Folder v1.0.0\r\n";
+echo "Clean iTunes Folder v1.0.1\r\n";
 echo "Connecting to iTunes...";
 $itunes		   = new COM("iTunes.Application");
 echo "Done!\r\n";
